@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Activity Roulette</title>
+<meta name="description" content="Spin the wheel to find a real nearby place to go, picked for your current location and time of day.">
+<meta name="theme-color" content="#0b3d2b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Roulette">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <h1>Activity Roulette</h1>
+    </div>
+    <time id="clock" class="clock"></time>
+  </header>
+
+  <main class="app-main">
+
+    <!-- SETUP -->
+    <section id="setup" class="screen">
+      <p class="eyebrow" id="greetingEyebrow">Good day</p>
+      <h2 id="bucketLabel">Let's find you somewhere to go</h2>
+      <p class="bucket-desc" id="bucketDesc">Figuring out what fits right now&hellip;</p>
+
+      <div class="vibe-card" id="vibeCard">
+        <span class="vibe-emoji" id="vibeEmoji">🎯</span>
+        <div>
+          <div class="vibe-title" id="vibeTitle">Your vibe</div>
+          <div class="vibe-sub" id="vibeSub">Based on the time right now</div>
+        </div>
+      </div>
+
+      <label class="field" for="radiusSelect">
+        <span>How far are you willing to go?</span>
+        <select id="radiusSelect">
+          <option value="1200">🚶 Walking distance (~1.2 km)</option>
+          <option value="3000" selected>🚲 Short hop (~3 km)</option>
+          <option value="8000">🚗 Road trip (~8 km)</option>
+        </select>
+      </label>
+
+      <button id="spinCta" class="btn btn-primary btn-big">
+        <span>🎡 Spin the Wheel</span>
+      </button>
+
+      <p class="status-line" id="statusLine" aria-live="polite"></p>
+    </section>
+
+    <!-- WHEEL -->
+    <section id="wheelSection" class="screen" hidden>
+      <p class="eyebrow" id="wheelEyebrow">Spinning for</p>
+      <h2 id="wheelHeading">Nearby spots</h2>
+
+      <div class="wheel-wrap">
+        <div class="wheel-pointer" aria-hidden="true"></div>
+        <div class="wheel" id="wheel">
+          <div class="wheel-inner" id="wheelInner"></div>
+          <div class="wheel-hub" aria-hidden="true">🎯</div>
+        </div>
+      </div>
+
+      <button id="spinBtn" class="btn btn-primary btn-big">Spin!</button>
+      <button id="backFromWheel" class="btn btn-link">&larr; change search radius</button>
+    </section>
+
+    <!-- RESULT -->
+    <section id="resultSection" class="screen" hidden>
+      <p class="eyebrow">Your destination is&hellip;</p>
+      <div class="result-card" id="resultCard">
+        <div class="result-emoji" id="resultEmoji">📍</div>
+        <h2 id="resultName">Somewhere fun</h2>
+        <p class="result-category" id="resultCategory">Category</p>
+        <p class="result-meta" id="resultMeta">0 m away</p>
+        <p class="result-address" id="resultAddress"></p>
+      </div>
+
+      <a id="directionsBtn" class="btn btn-primary btn-big" href="#" target="_blank" rel="noopener">🧭 Get Directions</a>
+      <button id="spinAgainBtn" class="btn btn-secondary btn-big">🎡 Spin Again</button>
+      <button id="refreshBtn" class="btn btn-link">↻ refresh nearby spots</button>
+    </section>
+
+    <!-- ERROR -->
+    <section id="errorSection" class="screen" hidden>
+      <p class="eyebrow">Hmm</p>
+      <h2 id="errorTitle">Something went sideways</h2>
+      <p class="bucket-desc" id="errorMessage">We couldn't figure out where to send you.</p>
+      <button id="retryBtn" class="btn btn-primary btn-big">Try Again</button>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    Place data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors
+  </footer>
+
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
