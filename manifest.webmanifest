@@ -1,0 +1,15 @@
+{
+  "name": "Activity Roulette",
+  "short_name": "Roulette",
+  "description": "Spin the wheel to find a real nearby place to go, picked for your current location and time of day.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b3d2b",
+  "theme_color": "#0b3d2b",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
